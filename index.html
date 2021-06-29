@@ -24,7 +24,7 @@
             <input type="button" id="button" value="Submit" @click="addName">
 
           </div>
-      
+ 
          
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script>
@@ -35,12 +35,14 @@
                         names: ['jean', 'cocean', 'ocean'],
                         className:"blue"
                     },
+
                     methods:{
                         addName(){
                            this.setRed();
                            this.names.push(this.name);     
                            this.name = '' ;
                         },
+                        
                         setRed() {
                             if((this.names.length % 2) === 1) {
                                 this.className = "red";

@@ -1,0 +1,43 @@
+<head>
+    <div id="root">
+
+        <h2>all tasks</h2>
+
+        <ul>
+            <li v-for="task in tasks">{{task.title}}</li>
+        </ul>
+
+        <h2>completed tasks</h2>
+
+        <ul>
+            <li v-for="task in completedTask">{{task.title}}</li>
+        </ul>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app =  new Vue({
+
+            el:'#root',
+
+            data: {
+              
+               tasks: [
+                    {title:"go to store", completed:true},
+                    {title:"go to school", completed:false},
+                    {title:"clean up", completed:true},
+                    {title:"make food", completed:false},
+                ],
+            },
+            //computed property
+            computed: {
+                completedTask() {
+                    return this.tasks.filter( (element)=> {
+                         return element.completed === true;
+                    });
+                }
+            
+        }
+        });
+    </script>
+</head>
