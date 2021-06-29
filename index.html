@@ -2,9 +2,19 @@
     <head>
         <meta></meta>
     </head>
+
     <body>
-        <h1>test</h1>
+        <style>
+            .blue{
+                color:blue;
+            }
+            .red{
+                color:red;
+            }
+        </style>
+   
         <div id="root">
+            <h1 :class="className">test</h1>
             <ul>
                 <li v-for="name in names">
                         {{name}}
@@ -22,17 +32,26 @@
                     el:'#root',
                     data:{
                         name:'',
-                        names: ['jean', 'cocean', 'ocean']
+                        names: ['jean', 'cocean', 'ocean'],
+                        className:"blue"
                     },
                     methods:{
                         addName(){
+                           this.setRed();
                            this.names.push(this.name);     
                            this.name = '' ;
+                        },
+                        setRed() {
+                            if((this.names.length % 2) === 1) {
+                                this.className = "red";
+                            }   else {
+                                this.className = "blue";
+                            } 
+                          
                         }
                     }
                  
                 })
         </script>
     </body>
-
 </html>
